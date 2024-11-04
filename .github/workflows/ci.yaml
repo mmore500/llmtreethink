@@ -47,6 +47,8 @@ jobs:
           sudo python -m pip install pip --upgrade
           sudo python -m pip install uv --upgrade
           sudo python -m uv pip install -r requirements.txt  --system
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       - run: python -m pytest -n auto tests
 
   # adapted from https://code.dblock.org/2021/09/03/generating-task-matrix-by-looping-over-repo-files-with-github-actions.html
