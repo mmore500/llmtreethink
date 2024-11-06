@@ -1,3 +1,4 @@
+import os
 import time
 import typing
 
@@ -15,7 +16,8 @@ def query_openai(
 
     assert 0 <= true_answer < len(choices)
 
-    for retry in range(100):
+    retries = [100, 3]["CI" in os.environ]
+    for retry in range(retries):
         try:
             response = openai.ChatCompletion.create(
                 model=model,

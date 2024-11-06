@@ -285,6 +285,8 @@ for replicate, num_taxa, question_ in tqdm(
     result["model"] = model
     records.append(result)
 
+    if "CI" in os.environ:
+        break
 
 df = pd.DataFrame.from_records(records)
 print(df.describe())
