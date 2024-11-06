@@ -249,7 +249,7 @@ records = []
 for replicate, num_taxa, question_ in tqdm(
     it.product(
         range(19),
-        [3, 4, 5, 8, 12, 18, 25, 50, 100],
+        [3, 4, 5, 8, 12, 18, 25],
         (
             question_equivalence_identical,
             question_equivalence_rotate_tree,
