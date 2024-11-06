@@ -1,10 +1,8 @@
-import itertools as it
 import random
 
 from .._auxlib._find_closing_parenthesis import find_closing_parenthesis
 from .._auxlib._find_opening_parenthesis import find_opening_parenthesis
 from .._auxlib._nth import nth
-
 
 
 def try_rotate_phylogeny_newick(newick_str: str) -> str:
@@ -22,10 +20,10 @@ def try_rotate_phylogeny_newick(newick_str: str) -> str:
     assert newick_str[i] == ")" and newick_str[j] == "("
     res = "".join(
         [
-            newick_str[:j + 1],
-            newick_str[comma_position + 1:i],
+            newick_str[: j + 1],
+            newick_str[comma_position + 1 : i],
             ",",
-            newick_str[j + 1:comma_position],
+            newick_str[j + 1 : comma_position],
             newick_str[i:],
         ],
     )
