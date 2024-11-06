@@ -1,29 +1,10 @@
 import itertools as it
 import random
 
+from .._auxlib._find_closing_parenthesis import find_closing_parenthesis
+from .._auxlib._find_opening_parenthesis import find_opening_parenthesis
 from .._auxlib._nth import nth
 
-
-def find_closing_parenthesis(newick_str: str, start: int) -> int:
-    depth = 1
-    for i in range(start + 1, len(newick_str)):
-        depth += newick_str[i] == "("
-        depth -= newick_str[i] == ")"
-        if depth == 0:
-            return i
-
-    assert False
-
-
-def find_opening_parenthesis(newick_str: str, start: int) -> int:
-    depth = 1
-    for i in range(start - 1, -1, -1):
-        depth += newick_str[i] == ")"
-        depth -= newick_str[i] == "("
-        if depth == 0:
-            return i
-
-    assert False
 
 
 def try_rotate_phylogeny_newick(newick_str: str) -> str:
