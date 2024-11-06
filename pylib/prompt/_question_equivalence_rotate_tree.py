@@ -9,11 +9,11 @@ def question_equivalence_rotate_tree(
 ) -> tuple[str, list[str], int, list[str]]:
 
     question = (
-        f"Do the two given phylogenies represent the same tree structure?"
+        "Do the two given phylogenies represent the same tree structure?"
     )
     choices = [
-        f"yes, the phylogenies are equivalent",
-        f"no, the phylogenies are different",
+        "yes, the phylogenies are equivalent",
+        "no, the phylogenies are different",
     ]
 
     answer = 0
