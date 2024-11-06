@@ -37,5 +37,5 @@ def rotate_phylogeny_newick(newick_str: str) -> str:
         res = try_rotate_phylogeny_newick(newick_str)
         if res != newick_str:
             return res
-
-    assert False
+    else:
+        assert False
