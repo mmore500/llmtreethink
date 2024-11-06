@@ -1,3 +1,4 @@
+import datetime
 import typing
 
 import opytional as opyt
@@ -24,4 +25,5 @@ def score_llm_answer(
             lambda x: float(x == true_answer),
             float("nan"),
         ),
+        "timestamp": datetime.datetime.now().isoformat(),
     }
