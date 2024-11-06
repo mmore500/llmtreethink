@@ -15,7 +15,7 @@ def query_openai(
 
     assert 0 <= true_answer < len(choices)
 
-    for retry in range(10):
+    for retry in range(100):
         try:
             response = openai.ChatCompletion.create(
                 model=model,
