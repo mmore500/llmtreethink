@@ -11,6 +11,9 @@ def question_identify_most_related(
 ) -> tuple[str, list[str], int]:
 
     tree = dp.Tree.get(data=newick_string, schema="newick")
+    for node in tree.preorder_node_iter():
+        node.edge.length = 1.0
+
     if taxa is None:
         taxa = random.sample(
             [x.taxon.label for x in tree.leaf_nodes()],
@@ -33,4 +36,4 @@ def question_identify_most_related(
         ],
     )
 
-    return question, choices, answer
+    return question, choices, answer, [newick_string]
