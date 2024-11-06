@@ -7,11 +7,11 @@ def question_equivalence_identical(
 ) -> tuple[str, list[str], int]:
 
     question = (
-        f"Do the two given phylogenies represent the same tree structure?"
+        "Do the two given phylogenies represent the same tree structure?"
     )
     choices = [
-        f"yes, the phylogenies are equivalent",
-        f"no, the phylogenies are different",
+        "yes, the phylogenies are equivalent",
+        "no, the phylogenies are different",
     ]
 
     answer = 0
