@@ -11,7 +11,7 @@ def query_openai(
     prompt: str,
     choices: list[str],
     true_answer: int,
-    model: str = "gpt-4",
+    model: str = "gpt-4o-mini",
 ) -> tuple[typing.Optional[int], str]:
 
     assert 0 <= true_answer < len(choices)
