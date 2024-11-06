@@ -23,7 +23,8 @@ def query_openai(
             )
             break
 
-        except openai.error.RateLimitError:
+        except openai.error.RateLimitError as e:
+            print(e)
             print(f"Rate limit error, retrying in {retry} minutes...")
             time.sleep(60 * retry)
     else:
