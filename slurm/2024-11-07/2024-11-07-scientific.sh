@@ -194,13 +194,13 @@ cat > "${SBATCH_FILE}" << EOF
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=16G
-#SBATCH --time=1-00:00:00
+#SBATCH --time=4:00:00
 #SBATCH --output="/mnt/home/%u/joblog/%j"
 #SBATCH --mail-user=mawni4ah2o@pomail.net
 #SBATCH --mail-type=FAIL,TIME_LIMIT
 #SBATCH --account=beacon
 #SBATCH --requeue
-#SBATCH --array=0-1
+#SBATCH --array=0-7
 
 ${JOB_PREAMBLE}
 
@@ -247,7 +247,7 @@ print(f"{replicate=}")
 records = []
 for replicate, num_taxa, question_, model, tree_source in tqdm(
     it.product(
-        range(19),
+        range(4),
         [3, 4, 5, 8, 12, 18, 25],
         (
             question_equivalence_identical,
