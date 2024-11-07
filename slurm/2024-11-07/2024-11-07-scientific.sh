@@ -217,6 +217,7 @@ cat /proc/cpuinfo || :
 echo "do work ----------------------------------------------------- \${SECONDS}"
 python3 << EOF_
 import itertools as it
+import os
 import random
 
 import pandas as pd
