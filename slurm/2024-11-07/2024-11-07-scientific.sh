@@ -200,7 +200,7 @@ cat > "${SBATCH_FILE}" << EOF
 #SBATCH --mail-type=FAIL,TIME_LIMIT
 #SBATCH --account=beacon
 #SBATCH --requeue
-#SBATCH --array=0-7
+#SBATCH --array=0-3
 
 ${JOB_PREAMBLE}
 
@@ -247,7 +247,7 @@ print(f"{replicate=}")
 records = []
 for replicate, num_taxa, question_, model, tree_source in tqdm(
     it.product(
-        range(4),
+        range(9),
         [3, 4, 5, 8, 12, 18, 25],
         (
             question_equivalence_identical,
