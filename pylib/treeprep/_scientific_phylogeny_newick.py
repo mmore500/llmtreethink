@@ -9,7 +9,11 @@ def scientific_phylogeny_newick(num_taxa: int) -> str:
 
     tree = dp.Tree.get_from_string(ref, schema="newick")
 
-    taxa = [leaf.taxon.label for leaf in tree.leaf_node_iter() if leaf.taxon is not None and leaf.taxon.label]
+    taxa = [
+        leaf.taxon.label
+        for leaf in tree.leaf_node_iter()
+        if leaf.taxon is not None and leaf.taxon.label
+    ]
     tree.retain_taxa_with_labels(random.sample(taxa, num_taxa))
 
     for node in tree.preorder_node_iter():
