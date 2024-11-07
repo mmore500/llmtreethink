@@ -261,7 +261,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
         (sample_phylogeny_newick, scientific_phylogeny_newick),
     ),
 ):
-    newick_tree = sample_phylogeny_newick(num_taxa)
+    newick_tree = tree_source(num_taxa)
     question, choices, true_answer, trees = question_(
         newick_tree,
     )
