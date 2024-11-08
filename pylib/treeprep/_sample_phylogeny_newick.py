@@ -20,8 +20,5 @@ def sample_phylogeny_newick(num_taxa: int) -> str:
 
     for node in tree.preorder_node_iter():
         node.edge.length = None
-    newick_str = (
-        tree.as_string(schema="newick")
-        .replace(".", "")
-    )
+    newick_str = tree.as_string(schema="newick").replace(".", "")
     return newick_str
