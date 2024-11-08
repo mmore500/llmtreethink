@@ -333,7 +333,7 @@ echo "submit sbatch file ====================================================="
 # $(which sbatch && echo --job-name="${JOBNAME}" || which bash) "${SBATCH_FILE}"
 for replicate in {0..3}; do
     export SLURM_ARRAY_TASK_ID=${replicate}
-    bash "${SBATCH_FILE}" &
+    (bash "${SBATCH_FILE}") &
 done
 
 wait
