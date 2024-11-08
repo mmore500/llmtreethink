@@ -5,6 +5,9 @@ from pylib.prompt._question_equivalence_identical import (
 from pylib.prompt._question_equivalence_rotate_tree import (
     question_equivalence_rotate_tree,
 )
+from pylib.prompt._question_equivalence_shuffle_taxa import (
+    question_equivalence_shuffle_taxa,
+)
 from pylib.prompt._question_equivalence_shufflerotate_tree import (
     question_equivalence_shufflerotate_tree,
 )
@@ -114,6 +117,19 @@ def test_smoke_scientific_phylogeny_newick():
     num_taxa = 3
     newick_tree = scientific_phylogeny_newick(num_taxa)
     question, choices, true_answer, trees = question_equivalence_swap_taxa(
+        newick_tree,
+    )
+
+    prompt = build_prompt(trees, question, choices)
+    print("prompt:", prompt)
+    result = query_openai(prompt, choices, true_answer)
+    print(f"{result=}")
+
+
+def test_smoke_shuffle_taxa_newick():
+    num_taxa = 3
+    newick_tree = scientific_phylogeny_newick(num_taxa)
+    question, choices, true_answer, trees = question_equivalence_shuffle_taxa(
         newick_tree,
     )
 
