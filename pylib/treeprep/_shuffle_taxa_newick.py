@@ -2,8 +2,6 @@ import random
 
 import dendropy as dp
 
-from .._auxlib._swap_words import swap_words
-
 
 def shuffle_taxa_newick(newick_str: str) -> str:
     assert ":" not in newick_str
