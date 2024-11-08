@@ -9,7 +9,7 @@
 \begin{minipage}[b]{0.2535\textwidth}
 \includegraphics[width=\textwidth, trim={0.65cm 0cm 0cm 0cm}, clip]{binder/binder-2024-11-07-scientific.ipynb/binder/teeplots/2024-11-07-scientific/col=q+hue=tree-repr+is_equivalence=False+kind=line+model=gpt-4o+palette=set2+row=tree-source+style=tree-repr+viz=relplot+x=num-taxa+y=adj-score+ext=.pdf}
 \end{minipage}
-\caption{gpt-4o}
+\caption{\footnotesize gpt-4o}
 \label{fig:treerepr:gpt-4o}
 \end{subfigure}
 
@@ -22,12 +22,20 @@
 \begin{minipage}[b]{0.2535\textwidth}
 \includegraphics[width=\textwidth, trim={0.65cm 0cm 0cm 0cm}, clip]{binder/binder-2024-11-07-scientific.ipynb/binder/teeplots/2024-11-07-scientific/col=q+hue=tree-repr+is_equivalence=False+kind=line+model=gpt-4o-mini+palette=set2+row=tree-source+style=tree-repr+viz=relplot+x=num-taxa+y=adj-score+ext=.pdf}
 \end{minipage}
-\caption{gpt-4o-mini}
+\caption{\footnotesize gpt-4o-mini}
 \label{fig:treerepr:gpt-4o-mini}
 \end{subfigure}
 
 \caption{
-\textbf{Tree representation comparison.}
+\textbf{Effects of tree representation on LLM tree thinking performance.}
+\footnotesize
+Charts compare tree thinking test scores for trees prompted as either JSON or Newick strings.
+A third treatment, included as a control, rendered phylogenies in prompts as a blank (i.e., empty) string.
+Surveyed models include OpenAI GPT-4o (panel \ref{fig:treerepr:gpt-4o}) and OpenAI GPT-4o-mini (panel \ref{fig:treerepr:gpt-4o-mini}).
+Adjusted score 1.0, indicated by dotted horizontal line, corresponds to expected correct responses under a random guessing strategy.
+Dashed line at top of facets corresponds to best-possible performance, where all responses are correct.
+Lattice rows differentiate prompts with ``anonymous'' trees, which were randomly generated with taxa identified as T0, T1, etc., and prompts with ``biological'' trees, which were subsampled from the Emoji tree of life \citep{mammola2023biodiversity} with taxa identified via binomial nomenclature (e.g., \textit{Panthera tigris}).
+Note, in particular, that under the control ``blank'' tree treatment, biological taxa provide sufficient information to answer the ``most related'' and ``most related to $x$'' questions.
 Shaded bands denote bootstrapped 95\% CI, $n=100$.
 }
 \label{fig:treerepr}
