@@ -11,6 +11,8 @@ def swap_taxa_newick(newick_str: str) -> str:
         .replace(")", " ")
         .replace(",", " ")
         .replace(";", "")
+        .replace("[&]", "")
+        .replace("[&R]", "")
         .split()
     )
     assert len(taxa) > 1
