@@ -250,7 +250,7 @@ print(f"{job=}")
 records = []
 for replicate, num_taxa, question_, model, tree_source in tqdm(
     it.product(
-        range(9),
+        range(4),
         [3, 4, 5, 8, 12, 18, 25],
         (
             question_equivalence_identical,
@@ -348,7 +348,7 @@ EOF
 
 echo "submit sbatch file ====================================================="
 # $(which sbatch && echo --job-name="${JOBNAME}" || which bash) "${SBATCH_FILE}"
-for replicate in {0..9}; do
+for replicate in {0..19}; do
     export SLURM_ARRAY_TASK_ID=${replicate}
     bash "${SBATCH_FILE}" &
 done
