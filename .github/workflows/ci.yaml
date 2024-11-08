@@ -40,8 +40,6 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: deploy
-        if: github.ref == 'refs/heads/master'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        if: github.ref == 'refs/heads/master'
