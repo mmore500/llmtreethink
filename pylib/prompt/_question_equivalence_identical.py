@@ -7,7 +7,7 @@ def question_equivalence_identical(
 ) -> tuple[str, list[str], int]:
 
     question = (
-        "Do the two given phylogenies represent the same tree structure?"
+        "Do the two given phylogenies represent the same evolutionary history?"
     )
     choices = [
         "yes, the phylogenies are equivalent",
