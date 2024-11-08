@@ -284,6 +284,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     newick_tree = tree_source(num_taxa)
     question, choices, true_answer, trees = question_(
         newick_tree,
+    )
 
     json_trees = [make_json_from_newick(tree) for tree in trees]
     prompt = build_prompt(json_trees, question, choices)
@@ -301,6 +302,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     newick_tree = tree_source(num_taxa)
     question, choices, true_answer, trees = question_(
         newick_tree,
+    )
 
     prompt = build_prompt([], question, choices)
     print("prompt:", prompt)
