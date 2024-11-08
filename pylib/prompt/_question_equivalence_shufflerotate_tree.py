@@ -4,6 +4,7 @@ import typing
 import dendropy as dp
 
 from ..treeprep._rotate_phylogeny_newick import rotate_phylogeny_newick
+from ._shuffle_choices import shuffle_choices
 
 
 def question_equivalence_shufflerotate_tree(
@@ -20,6 +21,8 @@ def question_equivalence_shufflerotate_tree(
     ]
 
     answer = 0
+
+    choices, answer = shuffle_choices(choices, answer)
 
     tree = dp.Tree.get(data=newick_string, schema="newick")
     for node in tree.preorder_node_iter():

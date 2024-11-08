@@ -4,6 +4,8 @@ import typing
 import dendropy as dp
 import numpy as np
 
+from ._shuffle_choices import shuffle_choices
+
 
 def question_identify_most_related(
     newick_string: str,
@@ -35,5 +37,7 @@ def question_identify_most_related(
             tree.mrca(taxon_labels=[second, third]).distance_from_root(),
         ],
     )
+
+    choices, answer = shuffle_choices(choices, answer)
 
     return question, choices, answer, [newick_string]
