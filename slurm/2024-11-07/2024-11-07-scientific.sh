@@ -277,6 +277,10 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     result["model"] = model
     records.append(result)
 
+    newick_tree = tree_source(num_taxa)
+    question, choices, true_answer, trees = question_(
+        newick_tree,
+
     json_trees = [make_json_from_newick(tree) for tree in trees]
     prompt = build_prompt(json_trees, question, choices)
     print("prompt:", prompt)
@@ -289,6 +293,10 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     result["tree source"] = tree_source.__name__
     result["model"] = model
     records.append(result)
+
+    newick_tree = tree_source(num_taxa)
+    question, choices, true_answer, trees = question_(
+        newick_tree,
 
     prompt = build_prompt([], question, choices)
     print("prompt:", prompt)
@@ -334,7 +342,7 @@ EOF
 
 echo "submit sbatch file ====================================================="
 # $(which sbatch && echo --job-name="${JOBNAME}" || which bash) "${SBATCH_FILE}"
-for replicate in {0..3}; do
+for replicate in {0..9}; do
     export SLURM_ARRAY_TASK_ID=${replicate}
     bash "${SBATCH_FILE}" &
 done
