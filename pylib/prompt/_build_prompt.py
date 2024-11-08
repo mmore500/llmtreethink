@@ -16,7 +16,7 @@ def build_prompt(
     prompt = ""
     if tree_string:
         plural = "s" * (len(tree_strings) > 1)
-        prompt += f"Consider the following phylogenetic tree{plural}:\n\n {tree_string}\n"
+        prompt += f"Consider the following phylogenetic tree{plural}:\n\n{tree_string}\n"
         prompt += "\n---\n\n"
     prompt += f"{question}\n"
     for idx, choice in enumerate(choices):
