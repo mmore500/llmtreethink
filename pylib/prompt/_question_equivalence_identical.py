@@ -1,5 +1,7 @@
 import typing
 
+from ._shuffle_choices import shuffle_choices
+
 
 def question_equivalence_identical(
     newick_string: str,
@@ -15,5 +17,7 @@ def question_equivalence_identical(
     ]
 
     answer = 0
+
+    choices, answer = shuffle_choices(choices, answer)
 
     return question, choices, answer, [newick_string, newick_string]

@@ -4,6 +4,8 @@ import typing
 import dendropy as dp
 import numpy as np
 
+from ._shuffle_choices import shuffle_choices
+
 
 def question_most_related_to_x(
     newick_string: str,
@@ -37,5 +39,7 @@ def question_most_related_to_x(
             (dfr1 == dfr2) * (dfr1 + dfr2),
         ],
     )
+
+    choices, answer = shuffle_choices(choices, answer)
 
     return question, choices, answer, [newick_string]
