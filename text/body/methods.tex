@@ -1,5 +1,86 @@
 \section{Methods} \label{sec:methods}
 
+\subsection{Equivalence Questions}
+
+These questions required the LLM to compare two phylogenies to assess whether they share the same tree structure.
+The true relationship between the trees differed between instances of this question,
+\begin{enumerate}
+\item the trees are identical (``identity''; phylogenies equivalent)
+\item children of one node were rotated (``rotate one''; phylogenies equivalent)
+\item children of all node were set to a randomly-selected rotation (``rotate shuffle''; phylogenies equivalent)
+\item two non-sibling taxa were swapped (``swap one''; phylogenies different)
+\item all taxa were shuffled (``swap shuffle''; phylogenies different)
+\end{enumerate}
+
+Prompts were of the form:
+
+\begin{tabular}{|p{0.9\textwidth}}
+Consider the following phylogenetic trees:
+
+\textbf{<rendered tree>}
+
+---
+
+\textbf{<rendered tree>}
+
+---
+
+Do the two given phylogenies represent the same evolutionary history?
+
+
+0: yes, the phylogenies are equivalent
+
+1: no, the phylogenies are different
+
+Please choose the correct answer, responding only with the answer number (0, 1):
+\end{tabular}
+
+\subsection{Most Related Questions}
+
+These questions provided one phylogeny, and asked the LLM to identify either (1) which pair among three taxa were more closely related or (2) which among two taxa is more closely related to a third identified taxon.
+
+The former prompt is of the form:
+
+\begin{tabular}{|p{0.9\textwidth}}
+Consider the following phylogenetic tree:
+
+\textbf{<rendered tree>}
+
+---
+
+Which among $X$ and $Y$ are most closely related to $Z$?
+
+0: $X$
+
+1: $Y$
+
+2: neither
+
+Please choose the correct answer, responding only with the answer number (0, 1, 2):
+\end{tabular}
+
+~\\
+~\\
+The latter prompt is of the form:
+
+\begin{tabular}{|p{0.9\textwidth}}
+Consider the following phylogenetic tree:
+
+\textbf{<rendered tree>}
+
+---
+
+Which pair among $X$, $Y$, and $Z$ are most closely related?
+
+0: $X$ and $Y$
+
+1: $X$ and $Z$
+
+2: $Y$ and $Z$
+
+Please choose the correct answer, responding only with the answer number (0, 1, 2):
+\end{tabular}
+
 \subsection{Software and Data Availability} \label{sec:materials}
 
 Supporting software and executable notebooks for this work are available via Zenodo at TODO \citep{moreno2024hsurf}.
