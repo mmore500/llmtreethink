@@ -1,30 +1,24 @@
 [submodule "binder/binder-2024-10-20-example.ipynb"]
-	path = binder/binder-2024-10-20-example.ipynb
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder-2024-10-20-example.ipynb
 	shallow = true
 [submodule "binder/binder-2024-11-05-openai-repr-size-4o.ipynb"]
-	path = binder/binder-2024-11-05-openai-repr-size-4o.ipynb
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder-2024-11-05-openai-repr-size-4o.ipynb
 	shallow = true
 [submodule "binder/binder-2024-11-05-openai-repr-size-4omini.ipynb"]
-	path = binder/binder-2024-11-05-openai-repr-size-4omini.ipynb
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder-2024-11-05-openai-repr-size-4omini.ipynb
 	shallow = true
 [submodule "binder/binder-2024-11-05-openai-repr-size.ipynb"]
-	path = binder/binder-2024-11-05-openai-repr-size.ipynb
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder-2024-11-05-openai-repr-size.ipynb
 	shallow = true
 [submodule "binder/binder-2024-11-07-scientific.ipynb"]
-	path = binder/binder-2024-11-07-scientific.ipynb
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder-2024-11-07-scientific.ipynb
 	shallow = true
 [submodule "binder/binder"]
-	path = binder/binder
 	url = https://github.com/mmore500/llmtreethink.git
 	branch = binder
 	shallow = true
