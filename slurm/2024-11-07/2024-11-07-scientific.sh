@@ -229,6 +229,9 @@ from pylib.prompt._question_equivalence_identical import (
 from pylib.prompt._question_equivalence_rotate_tree import (
     question_equivalence_rotate_tree,
 )
+from pylib.prompt._question_equivalence_shufflerotate_tree import (
+    question_equivalence_shufflerotate_tree,
+)
 from pylib.prompt._question_equivalence_swap_taxa import (
     question_equivalence_swap_taxa,
 )
@@ -252,6 +255,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
         (
             question_equivalence_identical,
             question_equivalence_rotate_tree,
+            question_equivalence_shufflerotate_tree,
             question_equivalence_swap_taxa,
             question_identify_most_related,
             question_most_related_to_x,
