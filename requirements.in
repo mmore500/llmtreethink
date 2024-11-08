@@ -28,6 +28,7 @@ watermark==2.4.3
 dendropy==5.0.1
 BioPython==1.84
 openai==0.28
+joinem==0.7.0
 
 # https://github.com/sphinx-doc/sphinx/issues/10291
 Jinja2<3.1
