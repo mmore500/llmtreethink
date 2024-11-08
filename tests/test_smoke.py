@@ -63,11 +63,15 @@ def test_smoke_question_equivalence_identical():
     print(f"{result=}")
 
 
-
 def test_smoke_question_equivalence_shufflerotate_tree():
     num_taxa = 10
     newick_tree = sample_phylogeny_newick(num_taxa)
-    question, choices, true_answer, trees = question_equivalence_shufflerotate_tree(
+    (
+        question,
+        choices,
+        true_answer,
+        trees,
+    ) = question_equivalence_shufflerotate_tree(
         newick_tree,
     )
 
@@ -113,8 +117,7 @@ def test_smoke_scientific_phylogeny_newick():
         newick_tree,
     )
 
-    json_trees = [make_json_from_newick(tree) for tree in trees]
-    prompt = build_prompt(json_trees, question, choices)
+    prompt = build_prompt(trees, question, choices)
     print("prompt:", prompt)
     result = query_openai(prompt, choices, true_answer)
     print(f"{result=}")
