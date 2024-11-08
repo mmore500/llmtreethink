@@ -240,9 +240,9 @@ from pylib.treeprep._scientific_phylogeny_newick import scientific_phylogeny_new
 from pylib.treerepr._make_json_from_newick import make_json_from_newick
 
 
-replicate = \${SLURM_ARRAY_TASK_ID:-0}
-random.seed(replicate)
-print(f"{replicate=}")
+job = \${SLURM_ARRAY_TASK_ID:-0}
+random.seed(job)
+print(f"{job=}")
 
 records = []
 for replicate, num_taxa, question_, model, tree_source in tqdm(
@@ -268,6 +268,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     prompt = build_prompt(trees, question, choices)
     print("prompt:", prompt)
     result = query_openai(prompt, choices, true_answer, model=model)
+    result["job"] = job
     result["replicate"] = replicate
     result["question"] = question_.__name__
     result["num_taxa"] = num_taxa
@@ -280,6 +281,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     prompt = build_prompt(json_trees, question, choices)
     print("prompt:", prompt)
     result = query_openai(prompt, choices, true_answer, model=model)
+    result["job"] = job
     result["replicate"] = replicate
     result["question"] = question_.__name__
     result["num_taxa"] = num_taxa
@@ -291,6 +293,7 @@ for replicate, num_taxa, question_, model, tree_source in tqdm(
     prompt = build_prompt([], question, choices)
     print("prompt:", prompt)
     result = query_openai(prompt, choices, true_answer, model=model)
+    result["job"] = job
     result["replicate"] = replicate
     result["question"] = question_.__name__
     result["num_taxa"] = num_taxa
