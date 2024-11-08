@@ -1,6 +1,7 @@
 import typing
 
 from ..treeprep._rotate_phylogeny_newick import rotate_phylogeny_newick
+from ._shuffle_choices import shuffle_choices
 
 
 def question_equivalence_rotate_tree(
@@ -17,6 +18,7 @@ def question_equivalence_rotate_tree(
     ]
 
     answer = 0
+    choices, answer = shuffle_choices(choices, answer)
 
     rotated_newick_string = rotate_phylogeny_newick(newick_string)
     return question, choices, answer, [newick_string, rotated_newick_string]
